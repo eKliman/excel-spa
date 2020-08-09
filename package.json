@@ -1,5 +1,5 @@
 {
-  "name": "excel-spa",
+  "name": "spreadsheets",
   "version": "1.0.0",
   "description": "Pure JavaScript Excel Single-page Application",
   "main": "webpack.config.js",
@@ -15,20 +15,18 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eKliman/excel-spa.git"
+    "url": "git+https://github.com/eKliman/spreadsheets.git"
   },
   "keywords": [
     "js",
-    "javascript",
-    "spa",
-    "excel"
+    "javascript"
   ],
   "author": "Evgeniy Kliman <kliman.evgeniy@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/eKliman/excel-spa/issues"
+    "url": "https://github.com/eKliman/spreadsheets/issues"
   },
-  "homepage": "https://github.com/eKliman/excel-spa#readme",
+  "homepage": "https://github.com/eKliman/spreadsheets#readme",
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.11.1",

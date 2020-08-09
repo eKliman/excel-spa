@@ -58,7 +58,7 @@ const cssLoaders = (extra) => {
       loader: MiniCssExtractPlugin.loader,
       options: {
         hmr: isDev,
-        reload: true,
+        reloadAll: true,
       },
     },
     'css-loader',
@@ -153,7 +153,7 @@ module.exports = {
         use: cssLoaders(),
       },
       {
-        test: /\.scss$/,
+        test: /\.s[ac]ss$/i,
         use: cssLoaders('sass-loader'),
       },
       {
