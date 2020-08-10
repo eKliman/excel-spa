@@ -17,7 +17,13 @@
         "printWidth": 80,
         "bracketSpacing": false
       }
-    ]
+    ],
+    "operator-linebreak": [
+      2,
+      "after",
+      { "overrides": { "?": "before", ":": "before" } }
+    ],
+    "indent": ["error", 2]
     // "semi": "off"
     // "no-unused-vars": "warn"
   },

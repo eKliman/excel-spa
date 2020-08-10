@@ -4,7 +4,6 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-// const postcssNormalize = require('postcss-normalize');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -17,9 +16,9 @@ const PATHS = {
 
 const optimization = () => {
   const config = {
-    splitChunks: {
-      chunks: 'all',
-    },
+    // splitChunks: {
+    //   chunks: 'all',
+    // },
   };
 
   if (isProd) {
@@ -33,7 +32,7 @@ const optimization = () => {
 };
 
 const filename = (ext) =>
-  isDev ? `${ext}/[name].${ext}` : `${ext}/[name].[contenthash:8].min.${ext}`;
+  isDev ? `[name].${ext}` : `[name].[contenthash:8].min.${ext}`;
 
 const jsLoaders = () => {
   const loaders = [
@@ -41,6 +40,7 @@ const jsLoaders = () => {
       loader: 'babel-loader',
       options: {
         presets: ['@babel/preset-env'],
+        plugins: ['@babel/plugin-proposal-class-properties'],
       },
     },
   ];
@@ -69,12 +69,8 @@ const cssLoaders = (extra) => {
         plugins: () => [
           require('postcss-flexbugs-fixes'),
           require('postcss-preset-env')({
-            // autoprefixer: {
-            // flexbox: 'no-2009',
-            // },
             stage: 3,
           }),
-          // postcssNormalize(),
         ],
       },
     },
@@ -90,7 +86,7 @@ const cssLoaders = (extra) => {
 module.exports = {
   context: PATHS.src,
   mode: 'development',
-  entry: ['@babel/polyfill', './js/index.js'],
+  entry: ['@babel/polyfill', './index.js'],
   output: {
     filename: filename('js'),
     path: PATHS.dist,
