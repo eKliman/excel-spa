@@ -1,6 +1,6 @@
-import {SpreadsheetsComponent} from '@core/SpreadsheetsComponent';
+import {SheetsComponent} from '@core/SheetsComponent';
 
-export class Toolbar extends SpreadsheetsComponent {
+export class Toolbar extends SheetsComponent {
   static className = 'toolbar';
 
   constructor($root) {
