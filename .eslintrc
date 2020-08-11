@@ -23,9 +23,8 @@
       "after",
       { "overrides": { "?": "before", ":": "before" } }
     ],
-    "indent": ["error", 2]
-    // "semi": "off"
-    // "no-unused-vars": "warn"
+    "indent": ["error", 2],
+    "no-unused-vars": "warn"
   },
   "extends": ["eslint:recommended", "prettier", "google"],
   "plugins": ["prettier"]

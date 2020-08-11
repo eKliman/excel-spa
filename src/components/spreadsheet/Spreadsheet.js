@@ -1,21 +1,17 @@
 import {$} from '@core/dom';
 
-export class Spreadsheets {
+export class Spreadsheet {
   constructor(selector, options) {
     this.$el = $(selector);
     this.components = options.components || [];
   }
 
   getRoot() {
-    const $root = $.create('div', 'spreadsheets');
+    const $root = $.create('div', 'spreadsheet');
 
     this.components = this.components.map((Component) => {
       const $el = $.create('div', Component.className);
       const component = new Component($el);
-      // // DEBUG // //
-      // if (component.name) {
-      //   window['c' + component.name] = component;
-      // }
       $el.html(component.toHTML());
       $root.append($el);
       return component;

@@ -3,18 +3,27 @@ const CODES = {
   Z: 90,
 };
 
-function createCell() {
-  return `<div class="table__cell" contenteditable></div>`;
+function createCell(_, index) {
+  return `<div class="table__cell" contenteditable data-col="${index}"></div>`;
 }
 
-function createColumn(col) {
-  return `<div class="table__column">${col}</div>`;
+function createColumn(col, index) {
+  return `<div class="table__column" data-type="resizible" data-col="${index}">
+            ${col}
+            <div class="table__column-resize" data-resize="col"></div>
+          </div>`;
 }
 
 function createRow(index, content) {
+  const resize = index
+    ? '<div class="table__row-resize" data-resize="row"></div>'
+    : '';
   return `
-    <div class="table__row">
-      <div class="table__row-info">${index ? index : ''}</div>
+    <div class="table__row" data-type="resizible">
+      <div class="table__row-info">
+        ${index ? index : ''}
+        ${resize}
+      </div>
       <div class="table__row-data">${content}</div>
     </div>
   `;

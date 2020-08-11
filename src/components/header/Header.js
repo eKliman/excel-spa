@@ -1,6 +1,6 @@
-import {SpreadsheetsComponent} from '@core/SpreadsheetsComponent';
+import {SheetsComponent} from '@core/SheetsComponent';
 
-export class Header extends SpreadsheetsComponent {
+export class Header extends SheetsComponent {
   static className = 'header';
 
   toHTML() {

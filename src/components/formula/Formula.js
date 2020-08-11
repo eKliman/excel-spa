@@ -1,6 +1,6 @@
-import {SpreadsheetsComponent} from '@core/SpreadsheetsComponent';
+import {SheetsComponent} from '@core/SheetsComponent';
 
-export class Formula extends SpreadsheetsComponent {
+export class Formula extends SheetsComponent {
   static className = 'formula';
 
   constructor($root) {
