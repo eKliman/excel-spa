@@ -8,16 +8,6 @@
   "rules": {
     "linebreak-style": ["error", "windows"],
     "require-jsdoc": "off",
-    "prettier/prettier": [
-      "error",
-      {
-        "endOfLine": "auto",
-        "trailingComma": "es5",
-        "singleQuote": true,
-        "printWidth": 80,
-        "bracketSpacing": false
-      }
-    ],
     "operator-linebreak": [
       2,
       "after",
@@ -26,6 +16,5 @@
     "indent": ["error", 2],
     "no-unused-vars": "warn"
   },
-  "extends": ["eslint:recommended", "prettier", "google"],
-  "plugins": ["prettier"]
+  "extends": ["eslint:recommended", "google"]
 }
