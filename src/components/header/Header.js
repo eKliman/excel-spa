@@ -3,6 +3,13 @@ import {SheetsComponent} from '@core/SheetsComponent';
 export class Header extends SheetsComponent {
   static className = 'header';
 
+  constructor($root, options) {
+    super($root, {
+      name: 'Header',
+      ...options,
+    });
+  }
+
   toHTML() {
     return `
       <input class="header__input" type="text" value="Новая таблица">

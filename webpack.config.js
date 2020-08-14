@@ -15,11 +15,7 @@ const PATHS = {
 };
 
 const optimization = () => {
-  const config = {
-    // splitChunks: {
-    //   chunks: 'all',
-    // },
-  };
+  const config = {};
 
   if (isProd) {
     config.minimizer = [
@@ -130,10 +126,6 @@ module.exports = {
           from: `${PATHS.src}/favicon.ico`,
           to: PATHS.dist,
         },
-        // {
-        //   from: `${PATHS.src}/images`,
-        //   to: `${PATHS.dist}/images`,
-        // },
       ],
     }),
   ],
@@ -151,20 +143,6 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: cssLoaders('sass-loader'),
-      },
-      {
-        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]',
-        },
-      },
-      {
-        test: /\.(png|jpg|jpeg|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]',
-        },
       },
     ],
   },

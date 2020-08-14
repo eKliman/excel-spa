@@ -3,10 +3,11 @@ import {SheetsComponent} from '@core/SheetsComponent';
 export class Toolbar extends SheetsComponent {
   static className = 'toolbar';
 
-  constructor($root) {
+  constructor($root, options) {
     super($root, {
       name: 'Toolbar',
-      listeners: ['click'],
+      listeners: [],
+      ...options,
     });
   }
 
@@ -42,9 +43,5 @@ export class Toolbar extends SheetsComponent {
         format_underlined
         </span>
       </div>`;
-  }
-
-  onClick(event) {
-    console.log(event.target);
   }
 }
