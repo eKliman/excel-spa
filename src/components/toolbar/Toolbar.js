@@ -1,47 +1,40 @@
-import {SheetsComponent} from '@core/SheetsComponent';
+import {SheetsStateComponent} from '@core/SheetsStateComponent';
+import {createToolbar} from './toolbar.template';
+import {$} from '@core/dom';
+import {defaultStyles} from '@/constants';
 
-export class Toolbar extends SheetsComponent {
+export class Toolbar extends SheetsStateComponent {
   static className = 'toolbar';
 
   constructor($root, options) {
     super($root, {
       name: 'Toolbar',
-      listeners: [],
+      listeners: ['click'],
+      subscribe: ['currentStyles'],
       ...options,
     });
   }
 
+  prepare() {
+    this.initState(defaultStyles);
+  }
+
+  get template() {
+    return createToolbar(this.state);
+  }
+
   toHTML() {
-    return `
-      <div class="toolbar__button">
-        <span class="toolbar__button-icon material-icons">
-        format_align_left
-        </span>
-      </div>
-      <div class="toolbar__button">
-        <span class="toolbar__button-icon material-icons">
-        format_align_center
-        </span>
-      </div>
-      <div class="toolbar__button">
-        <span class="toolbar__button-icon material-icons">
-        format_align_right
-        </span>
-      </div>
-      <div class="toolbar__button">
-        <span class="toolbar__button-icon material-icons">
-        format_bold
-        </span>
-      </div>
-      <div class="toolbar__button">
-        <span class="toolbar__button-icon material-icons">
-        format_italic
-        </span>
-      </div>
-      <div class="toolbar__button">
-        <span class="toolbar__button-icon material-icons">
-        format_underlined
-        </span>
-      </div>`;
+    return this.template;
+  }
+  storeChanged(changes) {
+    this.setState(changes.currentStyles);
+  }
+
+  onClick(event) {
+    const $target = $(event.target);
+    if ($target.data.type === 'button') {
+      const value = JSON.parse($target.data.value);
+      this.$emit('toolbar:applyStyle', value);
+    }
   }
 }
