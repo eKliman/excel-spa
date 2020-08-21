@@ -4,6 +4,7 @@ import {
   CHANGE_STYLES,
   APPLY_STYLE,
   RENAME_SHEET,
+  CHANGE_LAST_OPEN,
 } from './types';
 
 export function rootReducer(state, action) {
@@ -35,6 +36,12 @@ export function rootReducer(state, action) {
     };
   case RENAME_SHEET:
     field = 'sheetTitle';
+    return {
+      ...state,
+      [field]: action.data,
+    };
+  case CHANGE_LAST_OPEN:
+    field = 'lastOpened';
     return {
       ...state,
       [field]: action.data,

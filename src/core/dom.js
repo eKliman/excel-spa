@@ -114,6 +114,15 @@ class Dom {
     this.$el.classList.remove(className);
     return this;
   }
+
+  focusToEnd() {
+    const range = document.createRange();
+    const selection = window.getSelection();
+    range.selectNodeContents(this.$el);
+    range.collapse(false);
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
 }
 
 export function $(selector) {
