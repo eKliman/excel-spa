@@ -1,5 +1,5 @@
-import {storage} from '@core/utils';
 import {defaultStyles, defaultSheetTitle} from '@/constants';
+import {clone} from '@core/utils';
 
 const defaultState = {
   sheetTitle: defaultSheetTitle,
@@ -9,8 +9,15 @@ const defaultState = {
   stylesState: {},
   currentText: '',
   currentStyles: defaultStyles,
+  lastOpened: Date.now().toString(),
 };
 
-export const initialState = storage('sheets-state')
-  ? storage('sheets-state')
-  : defaultState;
+const normalize = (state) => ({
+  ...state,
+  currentStyles: defaultState,
+  currentText: '',
+});
+
+export function normalizeInitialState(state) {
+  return state ? normalize(state) : clone(defaultState);
+}

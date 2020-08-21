@@ -43,7 +43,7 @@ export class Table extends SheetsComponent {
     });
 
     this.$on('formula:done', () => {
-      this.selection.current.focus();
+      this.selection.current.focus().focusToEnd();
     });
 
     this.$on('toolbar:applyStyle', (value) => {

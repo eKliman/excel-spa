@@ -35,6 +35,7 @@ export class Formula extends SheetsComponent {
 
   onInput(event) {
     this.$emit('formula:input', $(event.target).text());
+    this.$formula.focusToEnd();
   }
 
   onKeydown(event) {

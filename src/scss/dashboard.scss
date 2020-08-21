@@ -53,6 +53,10 @@
     padding: 5px 12px;
     border-bottom: 1px solid $border-color;
   }
+  &__no-records {
+    font-size: 14px;
+    margin: 24px;
+  }
   &__list {
     @include clear-list;
   }

@@ -4,6 +4,7 @@ import {
   CHANGE_STYLES,
   APPLY_STYLE,
   RENAME_SHEET,
+  CHANGE_LAST_OPEN,
 } from './types';
 
 export function tableResize(data) {
@@ -37,6 +38,13 @@ export function applyStyle(data) {
 export function renameSheet(data) {
   return {
     type: RENAME_SHEET,
+    data,
+  };
+}
+
+export function changeLastOpened(data) {
+  return {
+    type: CHANGE_LAST_OPEN,
     data,
   };
 }
