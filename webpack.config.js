@@ -31,15 +31,7 @@ const filename = (ext) =>
   isDev ? `[name].${ext}` : `[name].[contenthash:8].min.${ext}`;
 
 const jsLoaders = () => {
-  const loaders = [
-    {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-        plugins: ['@babel/plugin-proposal-class-properties'],
-      },
-    },
-  ];
+  const loaders = ['babel-loader'];
 
   if (isDev) {
     loaders.push('eslint-loader');
